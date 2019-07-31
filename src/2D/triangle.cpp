@@ -19,65 +19,67 @@
 */
 #include "triangle.hpp"
 
-Triangle::Triangle()
-        : Convex2D(3) {}
+namespace VoronoiDiagram {
+    Triangle::Triangle()
+            : Convex2D(3) {}
 
-Triangle::Triangle(const Point2D &a, const Point2D &b, const Point2D &c)
-        : Convex2D({a, b, c}) {}
+    Triangle::Triangle(const Point2D &a, const Point2D &b, const Point2D &c)
+            : Convex2D({a, b, c}) {}
 
-Triangle::Triangle(const vector<Point2D> &points)
-        : Convex2D(points) {}
+    Triangle::Triangle(const vector<Point2D> &points)
+            : Convex2D(points) {}
 
-double Triangle::GetSideA() const {
-    return vertices_[0].l2_distance(vertices_[1]);
-}
-
-double Triangle::GetSideB() const {
-    return vertices_[1].l2_distance(vertices_[2]);
-}
-
-double Triangle::GetSideC() const {
-    return vertices_[2].l2_distance(vertices_[0]);
-}
-
-double Triangle::Area() const {
-    double half_perimeter = (GetSideA() + GetSideB() + GetSideC()) * 0.5;
-    return sqrt(half_perimeter * (half_perimeter - GetSideA()) * (half_perimeter - GetSideB()) *
-                (half_perimeter - GetSideC()));
-}
-
-bool Triangle::Contains(const Point2D &point) const {
-    int num_of_vertices = vertices_.size();
-    double sign;
-    bool contains = true;
-    for (int i = 0; i < num_of_vertices && contains; ++i) {
-        int j = (i + 1) % num_of_vertices;
-        if (Vector2D(point, vertices_[i]).Norm() == 0) {
-            contains = true;
-            break;
-        }
-        if (i == 0) {
-            sign = sgn(Vector2D(point, vertices_[i]).OrientedCCW(Vector2D(vertices_[i], vertices_[j])));
-        } else if (sgn(Vector2D(point, vertices_[i]).OrientedCCW(Vector2D(vertices_[i], vertices_[j]))) != sign &&
-                   sgn(Vector2D(point, vertices_[i]).OrientedCCW(Vector2D(vertices_[i], vertices_[j]))) != 0) {
-            contains = false;
-        }
+    double Triangle::GetSideA() const {
+        return vertices_[0].l2_distance(vertices_[1]);
     }
-    return contains;
-}
 
-bool Triangle::Boundary(const Point2D &point) const {
-    return Convex2D::Boundary(point);
-}
+    double Triangle::GetSideB() const {
+        return vertices_[1].l2_distance(vertices_[2]);
+    }
 
-vector<Point2D> Triangle::GetIntersection(const Line2D &line) const {
-    return Convex2D::GetIntersection(line);
-}
+    double Triangle::GetSideC() const {
+        return vertices_[2].l2_distance(vertices_[0]);
+    }
 
-vector<Point2D> Triangle::GetIntersection(const Ray2D &ray) const {
-    return Convex2D::GetIntersection(ray);
-}
+    double Triangle::Area() const {
+        double half_perimeter = (GetSideA() + GetSideB() + GetSideC()) * 0.5;
+        return sqrt(half_perimeter * (half_perimeter - GetSideA()) * (half_perimeter - GetSideB()) *
+                    (half_perimeter - GetSideC()));
+    }
 
-vector<Point2D> Triangle::GetIntersection(const Segment2D &segment) const {
-    return Convex2D::GetIntersection(segment);
+    bool Triangle::Contains(const Point2D &point) const {
+        int num_of_vertices = vertices_.size();
+        double sign;
+        bool contains = true;
+        for (int i = 0; i < num_of_vertices && contains; ++i) {
+            int j = (i + 1) % num_of_vertices;
+            if (Vector2D(point, vertices_[i]).Norm() == 0) {
+                contains = true;
+                break;
+            }
+            if (i == 0) {
+                sign = sgn(Vector2D(point, vertices_[i]).OrientedCCW(Vector2D(vertices_[i], vertices_[j])));
+            } else if (sgn(Vector2D(point, vertices_[i]).OrientedCCW(Vector2D(vertices_[i], vertices_[j]))) != sign &&
+                       sgn(Vector2D(point, vertices_[i]).OrientedCCW(Vector2D(vertices_[i], vertices_[j]))) != 0) {
+                contains = false;
+            }
+        }
+        return contains;
+    }
+
+    bool Triangle::Boundary(const Point2D &point) const {
+        return Convex2D::Boundary(point);
+    }
+
+    vector<Point2D> Triangle::GetIntersection(const Line2D &line) const {
+        return Convex2D::GetIntersection(line);
+    }
+
+    vector<Point2D> Triangle::GetIntersection(const Ray2D &ray) const {
+        return Convex2D::GetIntersection(ray);
+    }
+
+    vector<Point2D> Triangle::GetIntersection(const Segment2D &segment) const {
+        return Convex2D::GetIntersection(segment);
+    }
 }

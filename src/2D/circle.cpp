@@ -19,85 +19,87 @@
 */
 #include "circle.hpp"
 
-Circle::Circle()
-        : Ellipse() {}
+namespace VoronoiDiagram {
+    Circle::Circle()
+            : Ellipse() {}
 
-Circle::Circle(const Point2D &center, double radius)
-        : Ellipse(center, radius, radius) {}
+    Circle::Circle(const Point2D &center, double radius)
+            : Ellipse(center, radius, radius) {}
 
-Circle::Circle(const Circle &second_circle) {
-    center_ = second_circle.center_;
-    little_haxis_ = second_circle.little_haxis_;
-    big_haxis_ = second_circle.big_haxis_;
-}
+    Circle::Circle(const Circle &second_circle) {
+        center_ = second_circle.center_;
+        little_haxis_ = second_circle.little_haxis_;
+        big_haxis_ = second_circle.big_haxis_;
+    }
 
-void Circle::operator=(const Circle &second_circle) {
-    center_ = second_circle.center_;
-    little_haxis_ = second_circle.little_haxis_;
-    big_haxis_ = second_circle.big_haxis_;
-}
+    void Circle::operator=(const Circle &second_circle) {
+        center_ = second_circle.center_;
+        little_haxis_ = second_circle.little_haxis_;
+        big_haxis_ = second_circle.big_haxis_;
+    }
 
-Circle::Circle(Circle &&second_circle) {
-    center_ = move(second_circle.center_);
-    little_haxis_ = second_circle.little_haxis_;
-    big_haxis_ = second_circle.big_haxis_;
-}
+    Circle::Circle(Circle &&second_circle) {
+        center_ = move(second_circle.center_);
+        little_haxis_ = second_circle.little_haxis_;
+        big_haxis_ = second_circle.big_haxis_;
+    }
 
-void Circle::operator=(Circle &&second_circle) {
-    center_ = move(second_circle.center_);
-    little_haxis_ = second_circle.little_haxis_;
-    big_haxis_ = second_circle.big_haxis_;
-}
+    void Circle::operator=(Circle &&second_circle) {
+        center_ = move(second_circle.center_);
+        little_haxis_ = second_circle.little_haxis_;
+        big_haxis_ = second_circle.big_haxis_;
+    }
 
-Circle::Circle(const Point2D &p1, const Point2D &p2, const Point2D &p3) {
-    Segment2D first_segment(p1, p2);
-    Segment2D second_segment(p2, p3);
-    Line2D first_perpendicular(first_segment.GetCenter(), first_segment.NormalVec());
-    Line2D second_perpendicular(second_segment.GetCenter(), second_segment.NormalVec());
-    this->center_ = first_perpendicular.GetIntersection(second_perpendicular);
-    this->little_haxis_ = this->big_haxis_ = center_.l2_distance(p1);
-}
+    Circle::Circle(const Point2D &p1, const Point2D &p2, const Point2D &p3) {
+        Segment2D first_segment(p1, p2);
+        Segment2D second_segment(p2, p3);
+        Line2D first_perpendicular(first_segment.GetCenter(), first_segment.NormalVec());
+        Line2D second_perpendicular(second_segment.GetCenter(), second_segment.NormalVec());
+        this->center_ = first_perpendicular.GetIntersection(second_perpendicular);
+        this->little_haxis_ = this->big_haxis_ = center_.l2_distance(p1);
+    }
 
-void Circle::SetCenter(const Point2D &new_center) {
-    center_ = new_center;
-}
+    void Circle::SetCenter(const Point2D &new_center) {
+        center_ = new_center;
+    }
 
-void Circle::SetRadius(double new_radius) {
-    little_haxis_ = big_haxis_ = new_radius;
-}
+    void Circle::SetRadius(double new_radius) {
+        little_haxis_ = big_haxis_ = new_radius;
+    }
 
-Point2D Circle::GetCenter() const {
-    return center_;
-}
+    Point2D Circle::GetCenter() const {
+        return center_;
+    }
 
-double Circle::GetRadius() const {
-    return little_haxis_;
-}
+    double Circle::GetRadius() const {
+        return little_haxis_;
+    }
 
-Point2D Circle::GetLowestPoint() const {
-    return Point2D(this->center_ + Point2D(0, this->center_.y - this->little_haxis_));
-}
+    Point2D Circle::GetLowestPoint() const {
+        return Point2D(this->center_ + Point2D(0, this->center_.y - this->little_haxis_));
+    }
 
-double Circle::Area() const {
-    return Ellipse::Area();
-}
+    double Circle::Area() const {
+        return Ellipse::Area();
+    }
 
-bool Circle::Contains(const Point2D &point) const {
-    return this->center_.l2_distance(point) <= little_haxis_;
-}
+    bool Circle::Contains(const Point2D &point) const {
+        return this->center_.l2_distance(point) <= little_haxis_;
+    }
 
-bool Circle::Boundary(const Point2D &point) const {
-    return this->center_.l2_distance(point) == little_haxis_;
-}
+    bool Circle::Boundary(const Point2D &point) const {
+        return this->center_.l2_distance(point) == little_haxis_;
+    }
 
-vector<Point2D> Circle::GetIntersection(const Line2D &line) const {
-    return Ellipse::GetIntersection(line);
-}
+    vector<Point2D> Circle::GetIntersection(const Line2D &line) const {
+        return Ellipse::GetIntersection(line);
+    }
 
-vector<Point2D> Circle::GetIntersection(const Ray2D &ray) const {
-    return Ellipse::GetIntersection(ray);
-}
+    vector<Point2D> Circle::GetIntersection(const Ray2D &ray) const {
+        return Ellipse::GetIntersection(ray);
+    }
 
-vector<Point2D> Circle::GetIntersection(const Segment2D &segment) const {
-    return Ellipse::GetIntersection(segment);
+    vector<Point2D> Circle::GetIntersection(const Segment2D &segment) const {
+        return Ellipse::GetIntersection(segment);
+    }
 }

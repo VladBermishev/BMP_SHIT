@@ -28,55 +28,56 @@
 #include "line2D.hpp"
 #include "segment2D.hpp"
 
-class Ray2D {
-public:
-    Point2D pos_;
-    shared_ptr<Vector2D> dir_;
+namespace VoronoiDiagram {
+    class Ray2D {
+    public:
+        Point2D pos_;
+        shared_ptr<Vector2D> dir_;
 
-    explicit Ray2D();
+        explicit Ray2D();
 
-    explicit Ray2D(const Point2D &pos, const Vector2D &dir);
+        explicit Ray2D(const Point2D &pos, const Vector2D &dir);
 
-    explicit Ray2D(const Point2D &pos, const Point2D &point);
+        explicit Ray2D(const Point2D &pos, const Point2D &point);
 
-    Vector2D Direction() const;
+        Vector2D Direction() const;
 
-    Vector2D NormalVec() const;
+        Vector2D NormalVec() const;
 
-    double Distance(const Point2D &) const;
+        double Distance(const Point2D &) const;
 
-    bool Contains(const Point2D &) const;
+        bool Contains(const Point2D &) const;
 
-    // Intersection of ray and line
-    // ?params: second_line - the line with which we find intersection
-    // ?return: returns Point2D(INF, INF) if there is no intersection,
-    //          if line contains this ray, returns pos_ point of ray
-    //          else returns point of their intersection (in 2D)
-    // ?complexity: O(1)
-    Point2D GetIntersection(const Line2D &second_line) const;
+        // Intersection of ray and line
+        // ?params: second_line - the line with which we find intersection
+        // ?return: returns Point2D(INF, INF) if there is no intersection,
+        //          if line contains this ray, returns pos_ point of ray
+        //          else returns point of their intersection (in 2D)
+        // ?complexity: O(1)
+        Point2D GetIntersection(const Line2D &second_line) const;
 
-    // Intersection of two rays
-    // ?params: second_ray - the ray with which we find intersection
-    // ?return: returns Point2D(INF, INF) if there is no intersection,
-    //          returns pos_ point of ray, that is contained in other ray, if those ray 'contains' that ray,
-    //          else returns point of their intersection (in 2D)
-    // ?complexity: O(1)
-    Point2D GetIntersection(const Ray2D &second_ray) const;
+        // Intersection of two rays
+        // ?params: second_ray - the ray with which we find intersection
+        // ?return: returns Point2D(INF, INF) if there is no intersection,
+        //          returns pos_ point of ray, that is contained in other ray, if those ray 'contains' that ray,
+        //          else returns point of their intersection (in 2D)
+        // ?complexity: O(1)
+        Point2D GetIntersection(const Ray2D &second_ray) const;
 
-    // Intersection of ray and segment
-    // ?params: segment - the segment with which we find intersection
-    // ?return: returns Point2D(INF, INF) if there is no intersection,
-    //          if ray contains segment, returns first point of segment,
-    //          if segment contains pos_ of this ray, returns pos_ of this ray,
-    //          else returns point of their intersection (in 2D)
-    // ?complexity: O(1)
-    Point2D GetIntersection(const Segment2D &segment) const;
+        // Intersection of ray and segment
+        // ?params: segment - the segment with which we find intersection
+        // ?return: returns Point2D(INF, INF) if there is no intersection,
+        //          if ray contains segment, returns first point of segment,
+        //          if segment contains pos_ of this ray, returns pos_ of this ray,
+        //          else returns point of their intersection (in 2D)
+        // ?complexity: O(1)
+        Point2D GetIntersection(const Segment2D &segment) const;
 
-    bool HasIntersection(const Line2D &line) const;
+        bool HasIntersection(const Line2D &line) const;
 
-    bool HasIntersection(const Ray2D &second_ray) const;
+        bool HasIntersection(const Ray2D &second_ray) const;
 
-    bool HasIntersection(const Segment2D &segment) const;
-};
-
+        bool HasIntersection(const Segment2D &segment) const;
+    };
+}
 #endif /*RAY2D_HPP_*/

@@ -19,53 +19,53 @@
 */
 #ifndef SPLASHGEOMFWD_HPP_
 #define SPLASHGEOMFWD_HPP_
+namespace VoronoiDiagram {
+    class Point2D;
 
-class Point2D;
+    class Vector2D;
 
-class Vector2D;
+    class Line2D;
 
-class Line2D;
+    class Segment2D;
 
-class Segment2D;
+    class Ray2D;
 
-class Ray2D;
+    class Shape2D;
 
-class Shape2D;
+    class Ellipse;
 
-class Ellipse;
+    class Circle;
 
-class Circle;
+    class Polygon;
 
-class Polygon;
+    class Convex2D;
 
-class Convex2D;
+    class Rectangle;
 
-class Rectangle;
+    class Square;
 
-class Square;
+    class Triangle;
 
-class Triangle;
+    class Point3D;
 
-class Point3D;
+    class Vector3D;
 
-class Vector3D;
+    class Line3D;
 
-class Line3D;
+    class Segment3D;
 
-class Segment3D;
+    class Ray3D;
 
-class Ray3D;
+    class Shape3D;
 
-class Shape3D;
+    class Ellipsoid;
 
-class Ellipsoid;
+    class Sphere;
 
-class Sphere;
+    class Cylinder;
 
-class Cylinder;
+    class Polyhedron;
 
-class Polyhedron;
-
-class Convex3D;
-
+    class Convex3D;
+}
 #endif /*SPLASHGEOMFWD_HPP_*/

@@ -33,18 +33,19 @@
 #include <array>
 #include <list>
 
-using std::priority_queue;
-using std::make_shared;
-using std::shared_ptr;
-using std::unique_ptr;
-using std::make_pair;
-using std::vector;
-using std::string;
-using std::array;
-using std::swap;
-using std::move;
-using std::list;
-using std::pair;
+namespace VoronoiDiagram {
+    using std::priority_queue;
+    using std::make_shared;
+    using std::shared_ptr;
+    using std::unique_ptr;
+    using std::make_pair;
+    using std::vector;
+    using std::string;
+    using std::array;
+    using std::swap;
+    using std::move;
+    using std::list;
+    using std::pair;
 
 #ifndef M_PI
 #define M_PI 3.1415926535
@@ -54,11 +55,11 @@ using std::pair;
 #define M_E 2.71828182845
 #endif
 
-const double EPS = 1e-9;
-const double INF = DBL_MAX;
+    const double EPS = 1e-9;
+    const double INF = DBL_MAX;
 
 /*constexpr*/int sgn(double d);
 
-vector<double> GetQuadraticSolution(double A, double B, double C);
-
+    vector<double> GetQuadraticSolution(double A, double B, double C);
+}
 #endif /*UTILS_HPP_*/

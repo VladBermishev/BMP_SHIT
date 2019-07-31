@@ -25,34 +25,35 @@
 
 #include "point2D.hpp"
 
-class Event {
-public:
-    Event(const Point2D &point_of_event);
+namespace VoronoiDiagram {
+    class Event {
+    public:
+        Event(const Point2D &point_of_event);
 
-    virtual Point2D GetPointOfEvent() const;
+        virtual Point2D GetPointOfEvent() const;
 
-    bool operator<(const Event &second_event) const;
+        bool operator<(const Event &second_event) const;
 
-protected:
-    Point2D point_of_event_;
-};
+    protected:
+        Point2D point_of_event_;
+    };
 
-class PointEvent : public Event {
-public:
-    PointEvent(const Point2D &site);
+    class PointEvent : public Event {
+    public:
+        PointEvent(const Point2D &site);
 
-    double Abscissa() const;
+        double Abscissa() const;
 
-    double Ordinate() const;
-};
+        double Ordinate() const;
+    };
 
-class CircleEvent : public Event {
-public:
-    CircleEvent(const Point2D &new_voronoi_vertex);
+    class CircleEvent : public Event {
+    public:
+        CircleEvent(const Point2D &new_voronoi_vertex);
 
-    double Abscissa() const;
+        double Abscissa() const;
 
-    double Ordinate() const;
-};
-
+        double Ordinate() const;
+    };
+}
 #endif /* EVENT_HPP */

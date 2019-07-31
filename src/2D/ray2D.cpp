@@ -19,94 +19,96 @@
 */
 #include "ray2D.hpp"
 
-Ray2D::Ray2D()
-        : pos_(), dir_() {}
+namespace VoronoiDiagram {
+    Ray2D::Ray2D()
+            : pos_(), dir_() {}
 
-Ray2D::Ray2D(const Point2D &pos, const Vector2D &dir)
-        : pos_(pos), dir_(make_shared<Vector2D>(dir)) {}
+    Ray2D::Ray2D(const Point2D &pos, const Vector2D &dir)
+            : pos_(pos), dir_(make_shared<Vector2D>(dir)) {}
 
-Ray2D::Ray2D(const Point2D &pos, const Point2D &point)
-        : pos_(pos), dir_(make_shared<Vector2D>(pos, point)) {}
+    Ray2D::Ray2D(const Point2D &pos, const Point2D &point)
+            : pos_(pos), dir_(make_shared<Vector2D>(pos, point)) {}
 
-Vector2D Ray2D::Direction() const {
-    return *dir_;
-}
-
-Vector2D Ray2D::NormalVec() const {
-    return dir_->Ortopair();
-}
-
-double Ray2D::Distance(const Point2D &point) const {
-    double dot_product = dir_->Dot(Vector2D(pos_, point));
-    double distance;
-    if (fabs(dot_product) <= EPS) {
-        distance = pos_.l2_distance(point);
-    } else {
-        distance = Line2D(*this).Distance(point);
+    Vector2D Ray2D::Direction() const {
+        return *dir_;
     }
-    return distance;
-}
 
-bool Ray2D::Contains(const Point2D &point) const {
-    double dot_product = dir_->Dot(Vector2D(pos_, point));
-    return dot_product >= EPS && Line2D(*this).Contains(point);
-}
-
-Point2D Ray2D::GetIntersection(const Line2D &second_line) const {
-    Line2D this_line(*this);
-    Point2D intersection_point = this_line.GetIntersection(second_line);
-    if (intersection_point != kNegInfPoint2D) {
-        intersection_point = this->pos_;
-    } else if (intersection_point != kInfPoint2D && !this->Contains(intersection_point)) {
-        intersection_point = kInfPoint2D;
+    Vector2D Ray2D::NormalVec() const {
+        return dir_->Ortopair();
     }
-    return intersection_point;
-}
 
-Point2D Ray2D::GetIntersection(const Ray2D &second_ray) const {
-    Line2D this_line(*this);
-    Line2D second_line(second_ray);
-    Point2D intersection_point = this_line.GetIntersection(second_line);
-    if (intersection_point == kNegInfPoint2D) {
-        if (this->Contains(second_ray.pos_)) {
-            intersection_point = second_ray.pos_;
-        } else if (second_ray.Contains(this->pos_)) {
-            intersection_point = this->pos_;
+    double Ray2D::Distance(const Point2D &point) const {
+        double dot_product = dir_->Dot(Vector2D(pos_, point));
+        double distance;
+        if (fabs(dot_product) <= EPS) {
+            distance = pos_.l2_distance(point);
+        } else {
+            distance = Line2D(*this).Distance(point);
         }
-    } else if (intersection_point != kInfPoint2D) {
-        if (!this->Contains(intersection_point) || !second_ray.Contains(intersection_point)) {
+        return distance;
+    }
+
+    bool Ray2D::Contains(const Point2D &point) const {
+        double dot_product = dir_->Dot(Vector2D(pos_, point));
+        return dot_product >= EPS && Line2D(*this).Contains(point);
+    }
+
+    Point2D Ray2D::GetIntersection(const Line2D &second_line) const {
+        Line2D this_line(*this);
+        Point2D intersection_point = this_line.GetIntersection(second_line);
+        if (intersection_point != kNegInfPoint2D) {
+            intersection_point = this->pos_;
+        } else if (intersection_point != kInfPoint2D && !this->Contains(intersection_point)) {
             intersection_point = kInfPoint2D;
         }
+        return intersection_point;
     }
-    return intersection_point;
-}
 
-Point2D Ray2D::GetIntersection(const Segment2D &segment) const {
-    Line2D this_line(*this);
-    Line2D second_line(segment);
-    Point2D intersection_point = this_line.GetIntersection(second_line);
-    if (intersection_point == kNegInfPoint2D) {
-        if (this->Contains(segment.a)) {
-            intersection_point = segment.a;
-        } else if (segment.Contains(this->pos_)) {
-            intersection_point = this->pos_;
+    Point2D Ray2D::GetIntersection(const Ray2D &second_ray) const {
+        Line2D this_line(*this);
+        Line2D second_line(second_ray);
+        Point2D intersection_point = this_line.GetIntersection(second_line);
+        if (intersection_point == kNegInfPoint2D) {
+            if (this->Contains(second_ray.pos_)) {
+                intersection_point = second_ray.pos_;
+            } else if (second_ray.Contains(this->pos_)) {
+                intersection_point = this->pos_;
+            }
+        } else if (intersection_point != kInfPoint2D) {
+            if (!this->Contains(intersection_point) || !second_ray.Contains(intersection_point)) {
+                intersection_point = kInfPoint2D;
+            }
         }
-    } else if (intersection_point != kInfPoint2D) {
-        if (!this->Contains(intersection_point) || !segment.Contains(intersection_point)) {
-            intersection_point = kInfPoint2D;
-        }
+        return intersection_point;
     }
-    return intersection_point;
-}
 
-bool Ray2D::HasIntersection(const Line2D &line) const {
-    return line.HasIntersection(*this);
-}
+    Point2D Ray2D::GetIntersection(const Segment2D &segment) const {
+        Line2D this_line(*this);
+        Line2D second_line(segment);
+        Point2D intersection_point = this_line.GetIntersection(second_line);
+        if (intersection_point == kNegInfPoint2D) {
+            if (this->Contains(segment.a)) {
+                intersection_point = segment.a;
+            } else if (segment.Contains(this->pos_)) {
+                intersection_point = this->pos_;
+            }
+        } else if (intersection_point != kInfPoint2D) {
+            if (!this->Contains(intersection_point) || !segment.Contains(intersection_point)) {
+                intersection_point = kInfPoint2D;
+            }
+        }
+        return intersection_point;
+    }
 
-bool Ray2D::HasIntersection(const Ray2D &second_ray) const {
-    return this->GetIntersection(second_ray) != kInfPoint2D;
-}
+    bool Ray2D::HasIntersection(const Line2D &line) const {
+        return line.HasIntersection(*this);
+    }
 
-bool Ray2D::HasIntersection(const Segment2D &segment) const {
-    return this->GetIntersection(segment) != kInfPoint2D;
+    bool Ray2D::HasIntersection(const Ray2D &second_ray) const {
+        return this->GetIntersection(second_ray) != kInfPoint2D;
+    }
+
+    bool Ray2D::HasIntersection(const Segment2D &segment) const {
+        return this->GetIntersection(segment) != kInfPoint2D;
+    }
 }

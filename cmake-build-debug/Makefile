@@ -110,6 +110,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named voronoi
+
+# Build rule for target.
+voronoi: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 voronoi
+.PHONY : voronoi
+
+# fast build rule for target.
+voronoi/fast:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/build
+.PHONY : voronoi/fast
+
+#=============================================================================
 # Target rules for targets named BMP_STUFF
 
 # Build rule for target.
@@ -121,6 +134,60 @@ BMP_STUFF: cmake_check_build_system
 BMP_STUFF/fast:
 	$(MAKE) -f CMakeFiles\BMP_STUFF.dir\build.make CMakeFiles/BMP_STUFF.dir/build
 .PHONY : BMP_STUFF/fast
+
+RGB.obj: RGB.cpp.obj
+
+.PHONY : RGB.obj
+
+# target to build an object file
+RGB.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/RGB.cpp.obj
+.PHONY : RGB.cpp.obj
+
+RGB.i: RGB.cpp.i
+
+.PHONY : RGB.i
+
+# target to preprocess a source file
+RGB.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/RGB.cpp.i
+.PHONY : RGB.cpp.i
+
+RGB.s: RGB.cpp.s
+
+.PHONY : RGB.s
+
+# target to generate assembly for a file
+RGB.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/RGB.cpp.s
+.PHONY : RGB.cpp.s
+
+WinLib.obj: WinLib.cpp.obj
+
+.PHONY : WinLib.obj
+
+# target to build an object file
+WinLib.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/WinLib.cpp.obj
+.PHONY : WinLib.cpp.obj
+
+WinLib.i: WinLib.cpp.i
+
+.PHONY : WinLib.i
+
+# target to preprocess a source file
+WinLib.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/WinLib.cpp.i
+.PHONY : WinLib.cpp.i
+
+WinLib.s: WinLib.cpp.s
+
+.PHONY : WinLib.s
+
+# target to generate assembly for a file
+WinLib.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/WinLib.cpp.s
+.PHONY : WinLib.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -149,18 +216,565 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\BMP_STUFF.dir\build.make CMakeFiles/BMP_STUFF.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/2D/bstree.obj: src/2D/bstree.cpp.obj
+
+.PHONY : src/2D/bstree.obj
+
+# target to build an object file
+src/2D/bstree.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/bstree.cpp.obj
+.PHONY : src/2D/bstree.cpp.obj
+
+src/2D/bstree.i: src/2D/bstree.cpp.i
+
+.PHONY : src/2D/bstree.i
+
+# target to preprocess a source file
+src/2D/bstree.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/bstree.cpp.i
+.PHONY : src/2D/bstree.cpp.i
+
+src/2D/bstree.s: src/2D/bstree.cpp.s
+
+.PHONY : src/2D/bstree.s
+
+# target to generate assembly for a file
+src/2D/bstree.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/bstree.cpp.s
+.PHONY : src/2D/bstree.cpp.s
+
+src/2D/circle.obj: src/2D/circle.cpp.obj
+
+.PHONY : src/2D/circle.obj
+
+# target to build an object file
+src/2D/circle.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/circle.cpp.obj
+.PHONY : src/2D/circle.cpp.obj
+
+src/2D/circle.i: src/2D/circle.cpp.i
+
+.PHONY : src/2D/circle.i
+
+# target to preprocess a source file
+src/2D/circle.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/circle.cpp.i
+.PHONY : src/2D/circle.cpp.i
+
+src/2D/circle.s: src/2D/circle.cpp.s
+
+.PHONY : src/2D/circle.s
+
+# target to generate assembly for a file
+src/2D/circle.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/circle.cpp.s
+.PHONY : src/2D/circle.cpp.s
+
+src/2D/convex2D.obj: src/2D/convex2D.cpp.obj
+
+.PHONY : src/2D/convex2D.obj
+
+# target to build an object file
+src/2D/convex2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/convex2D.cpp.obj
+.PHONY : src/2D/convex2D.cpp.obj
+
+src/2D/convex2D.i: src/2D/convex2D.cpp.i
+
+.PHONY : src/2D/convex2D.i
+
+# target to preprocess a source file
+src/2D/convex2D.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/convex2D.cpp.i
+.PHONY : src/2D/convex2D.cpp.i
+
+src/2D/convex2D.s: src/2D/convex2D.cpp.s
+
+.PHONY : src/2D/convex2D.s
+
+# target to generate assembly for a file
+src/2D/convex2D.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/convex2D.cpp.s
+.PHONY : src/2D/convex2D.cpp.s
+
+src/2D/dcel.obj: src/2D/dcel.cpp.obj
+
+.PHONY : src/2D/dcel.obj
+
+# target to build an object file
+src/2D/dcel.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/dcel.cpp.obj
+.PHONY : src/2D/dcel.cpp.obj
+
+src/2D/dcel.i: src/2D/dcel.cpp.i
+
+.PHONY : src/2D/dcel.i
+
+# target to preprocess a source file
+src/2D/dcel.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/dcel.cpp.i
+.PHONY : src/2D/dcel.cpp.i
+
+src/2D/dcel.s: src/2D/dcel.cpp.s
+
+.PHONY : src/2D/dcel.s
+
+# target to generate assembly for a file
+src/2D/dcel.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/dcel.cpp.s
+.PHONY : src/2D/dcel.cpp.s
+
+src/2D/ellipse.obj: src/2D/ellipse.cpp.obj
+
+.PHONY : src/2D/ellipse.obj
+
+# target to build an object file
+src/2D/ellipse.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/ellipse.cpp.obj
+.PHONY : src/2D/ellipse.cpp.obj
+
+src/2D/ellipse.i: src/2D/ellipse.cpp.i
+
+.PHONY : src/2D/ellipse.i
+
+# target to preprocess a source file
+src/2D/ellipse.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/ellipse.cpp.i
+.PHONY : src/2D/ellipse.cpp.i
+
+src/2D/ellipse.s: src/2D/ellipse.cpp.s
+
+.PHONY : src/2D/ellipse.s
+
+# target to generate assembly for a file
+src/2D/ellipse.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/ellipse.cpp.s
+.PHONY : src/2D/ellipse.cpp.s
+
+src/2D/event.obj: src/2D/event.cpp.obj
+
+.PHONY : src/2D/event.obj
+
+# target to build an object file
+src/2D/event.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/event.cpp.obj
+.PHONY : src/2D/event.cpp.obj
+
+src/2D/event.i: src/2D/event.cpp.i
+
+.PHONY : src/2D/event.i
+
+# target to preprocess a source file
+src/2D/event.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/event.cpp.i
+.PHONY : src/2D/event.cpp.i
+
+src/2D/event.s: src/2D/event.cpp.s
+
+.PHONY : src/2D/event.s
+
+# target to generate assembly for a file
+src/2D/event.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/event.cpp.s
+.PHONY : src/2D/event.cpp.s
+
+src/2D/line2D.obj: src/2D/line2D.cpp.obj
+
+.PHONY : src/2D/line2D.obj
+
+# target to build an object file
+src/2D/line2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/line2D.cpp.obj
+.PHONY : src/2D/line2D.cpp.obj
+
+src/2D/line2D.i: src/2D/line2D.cpp.i
+
+.PHONY : src/2D/line2D.i
+
+# target to preprocess a source file
+src/2D/line2D.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/line2D.cpp.i
+.PHONY : src/2D/line2D.cpp.i
+
+src/2D/line2D.s: src/2D/line2D.cpp.s
+
+.PHONY : src/2D/line2D.s
+
+# target to generate assembly for a file
+src/2D/line2D.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/line2D.cpp.s
+.PHONY : src/2D/line2D.cpp.s
+
+src/2D/point2D.obj: src/2D/point2D.cpp.obj
+
+.PHONY : src/2D/point2D.obj
+
+# target to build an object file
+src/2D/point2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/point2D.cpp.obj
+.PHONY : src/2D/point2D.cpp.obj
+
+src/2D/point2D.i: src/2D/point2D.cpp.i
+
+.PHONY : src/2D/point2D.i
+
+# target to preprocess a source file
+src/2D/point2D.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/point2D.cpp.i
+.PHONY : src/2D/point2D.cpp.i
+
+src/2D/point2D.s: src/2D/point2D.cpp.s
+
+.PHONY : src/2D/point2D.s
+
+# target to generate assembly for a file
+src/2D/point2D.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/point2D.cpp.s
+.PHONY : src/2D/point2D.cpp.s
+
+src/2D/polygon.obj: src/2D/polygon.cpp.obj
+
+.PHONY : src/2D/polygon.obj
+
+# target to build an object file
+src/2D/polygon.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/polygon.cpp.obj
+.PHONY : src/2D/polygon.cpp.obj
+
+src/2D/polygon.i: src/2D/polygon.cpp.i
+
+.PHONY : src/2D/polygon.i
+
+# target to preprocess a source file
+src/2D/polygon.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/polygon.cpp.i
+.PHONY : src/2D/polygon.cpp.i
+
+src/2D/polygon.s: src/2D/polygon.cpp.s
+
+.PHONY : src/2D/polygon.s
+
+# target to generate assembly for a file
+src/2D/polygon.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/polygon.cpp.s
+.PHONY : src/2D/polygon.cpp.s
+
+src/2D/ray2D.obj: src/2D/ray2D.cpp.obj
+
+.PHONY : src/2D/ray2D.obj
+
+# target to build an object file
+src/2D/ray2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/ray2D.cpp.obj
+.PHONY : src/2D/ray2D.cpp.obj
+
+src/2D/ray2D.i: src/2D/ray2D.cpp.i
+
+.PHONY : src/2D/ray2D.i
+
+# target to preprocess a source file
+src/2D/ray2D.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/ray2D.cpp.i
+.PHONY : src/2D/ray2D.cpp.i
+
+src/2D/ray2D.s: src/2D/ray2D.cpp.s
+
+.PHONY : src/2D/ray2D.s
+
+# target to generate assembly for a file
+src/2D/ray2D.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/ray2D.cpp.s
+.PHONY : src/2D/ray2D.cpp.s
+
+src/2D/rectangle.obj: src/2D/rectangle.cpp.obj
+
+.PHONY : src/2D/rectangle.obj
+
+# target to build an object file
+src/2D/rectangle.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/rectangle.cpp.obj
+.PHONY : src/2D/rectangle.cpp.obj
+
+src/2D/rectangle.i: src/2D/rectangle.cpp.i
+
+.PHONY : src/2D/rectangle.i
+
+# target to preprocess a source file
+src/2D/rectangle.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/rectangle.cpp.i
+.PHONY : src/2D/rectangle.cpp.i
+
+src/2D/rectangle.s: src/2D/rectangle.cpp.s
+
+.PHONY : src/2D/rectangle.s
+
+# target to generate assembly for a file
+src/2D/rectangle.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/rectangle.cpp.s
+.PHONY : src/2D/rectangle.cpp.s
+
+src/2D/segment2D.obj: src/2D/segment2D.cpp.obj
+
+.PHONY : src/2D/segment2D.obj
+
+# target to build an object file
+src/2D/segment2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/segment2D.cpp.obj
+.PHONY : src/2D/segment2D.cpp.obj
+
+src/2D/segment2D.i: src/2D/segment2D.cpp.i
+
+.PHONY : src/2D/segment2D.i
+
+# target to preprocess a source file
+src/2D/segment2D.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/segment2D.cpp.i
+.PHONY : src/2D/segment2D.cpp.i
+
+src/2D/segment2D.s: src/2D/segment2D.cpp.s
+
+.PHONY : src/2D/segment2D.s
+
+# target to generate assembly for a file
+src/2D/segment2D.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/segment2D.cpp.s
+.PHONY : src/2D/segment2D.cpp.s
+
+src/2D/shape2D.obj: src/2D/shape2D.cpp.obj
+
+.PHONY : src/2D/shape2D.obj
+
+# target to build an object file
+src/2D/shape2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/shape2D.cpp.obj
+.PHONY : src/2D/shape2D.cpp.obj
+
+src/2D/shape2D.i: src/2D/shape2D.cpp.i
+
+.PHONY : src/2D/shape2D.i
+
+# target to preprocess a source file
+src/2D/shape2D.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/shape2D.cpp.i
+.PHONY : src/2D/shape2D.cpp.i
+
+src/2D/shape2D.s: src/2D/shape2D.cpp.s
+
+.PHONY : src/2D/shape2D.s
+
+# target to generate assembly for a file
+src/2D/shape2D.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/shape2D.cpp.s
+.PHONY : src/2D/shape2D.cpp.s
+
+src/2D/square.obj: src/2D/square.cpp.obj
+
+.PHONY : src/2D/square.obj
+
+# target to build an object file
+src/2D/square.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/square.cpp.obj
+.PHONY : src/2D/square.cpp.obj
+
+src/2D/square.i: src/2D/square.cpp.i
+
+.PHONY : src/2D/square.i
+
+# target to preprocess a source file
+src/2D/square.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/square.cpp.i
+.PHONY : src/2D/square.cpp.i
+
+src/2D/square.s: src/2D/square.cpp.s
+
+.PHONY : src/2D/square.s
+
+# target to generate assembly for a file
+src/2D/square.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/square.cpp.s
+.PHONY : src/2D/square.cpp.s
+
+src/2D/triangle.obj: src/2D/triangle.cpp.obj
+
+.PHONY : src/2D/triangle.obj
+
+# target to build an object file
+src/2D/triangle.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/triangle.cpp.obj
+.PHONY : src/2D/triangle.cpp.obj
+
+src/2D/triangle.i: src/2D/triangle.cpp.i
+
+.PHONY : src/2D/triangle.i
+
+# target to preprocess a source file
+src/2D/triangle.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/triangle.cpp.i
+.PHONY : src/2D/triangle.cpp.i
+
+src/2D/triangle.s: src/2D/triangle.cpp.s
+
+.PHONY : src/2D/triangle.s
+
+# target to generate assembly for a file
+src/2D/triangle.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/triangle.cpp.s
+.PHONY : src/2D/triangle.cpp.s
+
+src/2D/vector2D.obj: src/2D/vector2D.cpp.obj
+
+.PHONY : src/2D/vector2D.obj
+
+# target to build an object file
+src/2D/vector2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/vector2D.cpp.obj
+.PHONY : src/2D/vector2D.cpp.obj
+
+src/2D/vector2D.i: src/2D/vector2D.cpp.i
+
+.PHONY : src/2D/vector2D.i
+
+# target to preprocess a source file
+src/2D/vector2D.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/vector2D.cpp.i
+.PHONY : src/2D/vector2D.cpp.i
+
+src/2D/vector2D.s: src/2D/vector2D.cpp.s
+
+.PHONY : src/2D/vector2D.s
+
+# target to generate assembly for a file
+src/2D/vector2D.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/vector2D.cpp.s
+.PHONY : src/2D/vector2D.cpp.s
+
+src/2D/voronoi2D.obj: src/2D/voronoi2D.cpp.obj
+
+.PHONY : src/2D/voronoi2D.obj
+
+# target to build an object file
+src/2D/voronoi2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/voronoi2D.cpp.obj
+.PHONY : src/2D/voronoi2D.cpp.obj
+
+src/2D/voronoi2D.i: src/2D/voronoi2D.cpp.i
+
+.PHONY : src/2D/voronoi2D.i
+
+# target to preprocess a source file
+src/2D/voronoi2D.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/voronoi2D.cpp.i
+.PHONY : src/2D/voronoi2D.cpp.i
+
+src/2D/voronoi2D.s: src/2D/voronoi2D.cpp.s
+
+.PHONY : src/2D/voronoi2D.s
+
+# target to generate assembly for a file
+src/2D/voronoi2D.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/2D/voronoi2D.cpp.s
+.PHONY : src/2D/voronoi2D.cpp.s
+
+src/splash_utils.obj: src/splash_utils.cpp.obj
+
+.PHONY : src/splash_utils.obj
+
+# target to build an object file
+src/splash_utils.cpp.obj:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/splash_utils.cpp.obj
+.PHONY : src/splash_utils.cpp.obj
+
+src/splash_utils.i: src/splash_utils.cpp.i
+
+.PHONY : src/splash_utils.i
+
+# target to preprocess a source file
+src/splash_utils.cpp.i:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/splash_utils.cpp.i
+.PHONY : src/splash_utils.cpp.i
+
+src/splash_utils.s: src/splash_utils.cpp.s
+
+.PHONY : src/splash_utils.s
+
+# target to generate assembly for a file
+src/splash_utils.cpp.s:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/src/splash_utils.cpp.s
+.PHONY : src/splash_utils.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
+	@echo ... voronoi
 	@echo ... rebuild_cache
 	@echo ... BMP_STUFF
 	@echo ... edit_cache
+	@echo ... RGB.obj
+	@echo ... RGB.i
+	@echo ... RGB.s
+	@echo ... WinLib.obj
+	@echo ... WinLib.i
+	@echo ... WinLib.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... src/2D/bstree.obj
+	@echo ... src/2D/bstree.i
+	@echo ... src/2D/bstree.s
+	@echo ... src/2D/circle.obj
+	@echo ... src/2D/circle.i
+	@echo ... src/2D/circle.s
+	@echo ... src/2D/convex2D.obj
+	@echo ... src/2D/convex2D.i
+	@echo ... src/2D/convex2D.s
+	@echo ... src/2D/dcel.obj
+	@echo ... src/2D/dcel.i
+	@echo ... src/2D/dcel.s
+	@echo ... src/2D/ellipse.obj
+	@echo ... src/2D/ellipse.i
+	@echo ... src/2D/ellipse.s
+	@echo ... src/2D/event.obj
+	@echo ... src/2D/event.i
+	@echo ... src/2D/event.s
+	@echo ... src/2D/line2D.obj
+	@echo ... src/2D/line2D.i
+	@echo ... src/2D/line2D.s
+	@echo ... src/2D/point2D.obj
+	@echo ... src/2D/point2D.i
+	@echo ... src/2D/point2D.s
+	@echo ... src/2D/polygon.obj
+	@echo ... src/2D/polygon.i
+	@echo ... src/2D/polygon.s
+	@echo ... src/2D/ray2D.obj
+	@echo ... src/2D/ray2D.i
+	@echo ... src/2D/ray2D.s
+	@echo ... src/2D/rectangle.obj
+	@echo ... src/2D/rectangle.i
+	@echo ... src/2D/rectangle.s
+	@echo ... src/2D/segment2D.obj
+	@echo ... src/2D/segment2D.i
+	@echo ... src/2D/segment2D.s
+	@echo ... src/2D/shape2D.obj
+	@echo ... src/2D/shape2D.i
+	@echo ... src/2D/shape2D.s
+	@echo ... src/2D/square.obj
+	@echo ... src/2D/square.i
+	@echo ... src/2D/square.s
+	@echo ... src/2D/triangle.obj
+	@echo ... src/2D/triangle.i
+	@echo ... src/2D/triangle.s
+	@echo ... src/2D/vector2D.obj
+	@echo ... src/2D/vector2D.i
+	@echo ... src/2D/vector2D.s
+	@echo ... src/2D/voronoi2D.obj
+	@echo ... src/2D/voronoi2D.i
+	@echo ... src/2D/voronoi2D.s
+	@echo ... src/splash_utils.obj
+	@echo ... src/splash_utils.i
+	@echo ... src/splash_utils.s
 .PHONY : help
 
 

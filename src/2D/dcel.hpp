@@ -26,38 +26,39 @@
 #include "point2D.hpp"
 #include "segment2D.hpp"
 
-class DCEL;
+namespace VoronoiDiagram {
+    class DCEL;
 
-class EdgeNode {
-public:
-    Segment2D edge_;
-    shared_ptr<EdgeNode> twin_;
-    shared_ptr<Point2D> site_;
-    bool finished_;
+    class EdgeNode {
+    public:
+        Segment2D edge_;
+        shared_ptr<EdgeNode> twin_;
+        shared_ptr<Point2D> site_;
+        bool finished_;
 
-    EdgeNode();
+        EdgeNode();
 
-    EdgeNode(const Point2D &p1, const Point2D &site);
+        EdgeNode(const Point2D &p1, const Point2D &site);
 
-    EdgeNode(const Point2D &p1, const Point2D &p2, const Point2D &site);
+        EdgeNode(const Point2D &p1, const Point2D &p2, const Point2D &site);
 
-    void Finish(const Point2D &p2);
+        void Finish(const Point2D &p2);
 
-    friend std::ostream &operator<<(std::ostream &o, const EdgeNode &edge_node);
+        friend std::ostream &operator<<(std::ostream &o, const EdgeNode &edge_node);
 
-    friend class DCEL;
-};
+        friend class DCEL;
+    };
 
 // Double-Connected(Linked) Edge List
-class DCEL {
-public:
-    DCEL();
+    class DCEL {
+    public:
+        DCEL();
 
-    void AddEdge(const EdgeNode &new_edge);
+        void AddEdge(const EdgeNode &new_edge);
 
-    void Finish(const Rectangle &border_box);
+        void Finish(const Rectangle &border_box);
 
-    list<EdgeNode> edges;
-};
-
+        list<EdgeNode> edges;
+    };
+}
 #endif /*DCEL_HPP_*/

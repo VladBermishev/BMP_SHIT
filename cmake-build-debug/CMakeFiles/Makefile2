@@ -64,10 +64,47 @@ CMAKE_SOURCE_DIR = C:\Users\Vladi\Desktop\BMP_STUFF
 CMAKE_BINARY_DIR = C:\Users\Vladi\Desktop\BMP_STUFF\cmake-build-debug
 
 #=============================================================================
+# Target rules for target CMakeFiles/voronoi.dir
+
+# All Build rule for target.
+CMakeFiles/voronoi.dir/all:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/depend
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Vladi\Desktop\BMP_STUFF\cmake-build-debug\CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 "Built target voronoi"
+.PHONY : CMakeFiles/voronoi.dir/all
+
+# Include target in all.
+all: CMakeFiles/voronoi.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/voronoi.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Vladi\Desktop\BMP_STUFF\cmake-build-debug\CMakeFiles 21
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/voronoi.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Vladi\Desktop\BMP_STUFF\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/voronoi.dir/rule
+
+# Convenience name for target.
+voronoi: CMakeFiles/voronoi.dir/rule
+
+.PHONY : voronoi
+
+# clean rule for target.
+CMakeFiles/voronoi.dir/clean:
+	$(MAKE) -f CMakeFiles\voronoi.dir\build.make CMakeFiles/voronoi.dir/clean
+.PHONY : CMakeFiles/voronoi.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/voronoi.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/BMP_STUFF.dir
 
 # All Build rule for target.
-CMakeFiles/BMP_STUFF.dir/all:
+CMakeFiles/BMP_STUFF.dir/all: CMakeFiles/voronoi.dir/all
 	$(MAKE) -f CMakeFiles\BMP_STUFF.dir\build.make CMakeFiles/BMP_STUFF.dir/depend
 	$(MAKE) -f CMakeFiles\BMP_STUFF.dir\build.make CMakeFiles/BMP_STUFF.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Vladi\Desktop\BMP_STUFF\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target BMP_STUFF"
@@ -80,7 +117,7 @@ all: CMakeFiles/BMP_STUFF.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BMP_STUFF.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Vladi\Desktop\BMP_STUFF\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Vladi\Desktop\BMP_STUFF\cmake-build-debug\CMakeFiles 23
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/BMP_STUFF.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Vladi\Desktop\BMP_STUFF\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/BMP_STUFF.dir/rule

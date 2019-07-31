@@ -17,6 +17,48 @@
 					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="voronoi">
+				<Option output="C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/libvoronoi.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 voronoi"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="voronoi/fast">
+				<Option output="C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/libvoronoi.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 voronoi/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug"/>
 				<Option type="4"/>
@@ -80,8 +122,128 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/RGB.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/RGB.h">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/WinLib.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/WinLib.h">
+			<Option target="voronoi"/>
+		</Unit>
 		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/main.cpp">
 			<Option target="BMP_STUFF"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/bstree.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/bstree.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/circle.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/circle.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/convex2D.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/convex2D.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/dcel.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/dcel.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/ellipse.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/ellipse.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/event.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/event.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/line2D.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/line2D.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/point2D.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/point2D.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/polygon.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/polygon.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/ray2D.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/ray2D.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/rectangle.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/rectangle.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/segment2D.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/segment2D.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/shape2D.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/shape2D.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/square.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/square.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/triangle.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/triangle.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/vector2D.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/vector2D.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/voronoi2D.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/2D/voronoi2D.hpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/splash_utils.cpp">
+			<Option target="voronoi"/>
+		</Unit>
+		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/src/splash_utils.hpp">
+			<Option target="voronoi"/>
 		</Unit>
 		<Unit filename="C:/Users/Vladi/Desktop/BMP_STUFF/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

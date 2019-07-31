@@ -25,40 +25,43 @@
 
 #include "convex2D.hpp"
 
-class Rectangle : public Convex2D {
-public:
-    explicit Rectangle();
+namespace VoronoiDiagram {
+    class Rectangle : public Convex2D {
+    public:
+        explicit Rectangle();
 
-    explicit Rectangle(const Rectangle &second_polygon);
+        Rectangle(const Rectangle &second_polygon);
 
-    Rectangle &operator=(const Rectangle &second_polygon);
+        Rectangle &operator=(const Rectangle &second_polygon);
 
-    explicit Rectangle(Rectangle &&second_polygon);
+        explicit Rectangle(Rectangle &&second_polygon);
 
-    Rectangle &operator=(Rectangle &&second_polygon);
+        Rectangle &operator=(Rectangle &&second_polygon);
 
-    explicit Rectangle(const vector<Point2D> &points);
+        explicit Rectangle(const vector<Point2D> &points);
 
-    explicit Rectangle(const Point2D &p1, const Point2D &p2, const Point2D &p3, const Point2D &p4);
+        explicit Rectangle(const Point2D &p1, const Point2D &p2, const Point2D &p3, const Point2D &p4);
 
-    double Area() const;
+        double Area() const;
 
-    double Perimeter() const;
+        double Perimeter() const;
 
-    bool Contains(const Point2D &) const;
+        bool Contains(const Point2D &) const;
 
-    bool Boundary(const Point2D &) const;
+        bool Boundary(const Point2D &) const;
 
-    virtual vector<Point2D> GetIntersection(const Line2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Line2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Segment2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Segment2D &) const override;
 
-    Convex2D GetIntersectionalConvex2D(const Point2D &cur_point, const Line2D &halfplane) const;
-};
+        Convex2D GetIntersectionalConvex2D(const Point2D &cur_point, const Line2D &halfplane) const;
+    };
 
-const Rectangle kMaxRectangle(
-        Rectangle(Point2D(INF, INF), Point2D(-INF, INF), Point2D(-INF, -INF), Point2D(INF, -INF)));
+    const Rectangle kMaxRectangle(
+            Rectangle(Point2D(INF, INF), Point2D(-INF, INF), Point2D(-INF, -INF), Point2D(INF, -INF)
 
+    ));
+}
 #endif /*RECTANGLE_HPP_*/

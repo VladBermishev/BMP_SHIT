@@ -19,91 +19,94 @@
 */
 #include "voronoi2D.hpp"
 
-Voronoi2DLocus::Voronoi2DLocus()
-        : region_(nullptr), site_() {}
+namespace VoronoiDiagram {
+    Voronoi2DLocus::Voronoi2DLocus()
+            : region_(nullptr), site_() {}
 
-Voronoi2DLocus::Voronoi2DLocus(const Convex2D &locus, const Point2D &site)
-        : region_(make_shared<Convex2D>(locus)), site_(site) {}
+    Voronoi2DLocus::Voronoi2DLocus(const Convex2D &locus, const Point2D &site)
+            : region_(make_shared<Convex2D>(locus)), site_(site) {}
 
-Convex2D Voronoi2DLocus::GetRegion() {
-    return *region_;
-}
-
-VoronoiDiagram2D::VoronoiDiagram2D()
-        : diagram_() {}
-
-VoronoiDiagram2D::VoronoiDiagram2D(const vector<Point2D> &points) {
-    MakeVoronoiDiagram2DHalfPlanes(points, kMaxRectangle);
-}
-
-vector<Voronoi2DLocus> VoronoiDiagram2D::GetDiagramLocuses() const {
-    return diagram_;
-}
-
-DCEL VoronoiDiagram2D::GetDiagramDCEL() const {
-    return dcel_;
-}
-
-Convex2D
-GetHalfPlanesIntersection(const Point2D &cur_point, const vector<Line2D> &halfplanes, const Rectangle &border_box) {
-    if (halfplanes.size() == 1) {
-        Convex2D cur_convex(border_box.GetIntersectionalConvex2D(cur_point, halfplanes[0]));
-        return cur_convex;
-    } else {
-        int middle = halfplanes.size() >> 1;
-        vector<Line2D> first_half(halfplanes.begin(), halfplanes.begin() + middle);
-        vector<Line2D> second_half(halfplanes.begin() + middle, halfplanes.end());
-        Convex2D first_convex(GetHalfPlanesIntersection(cur_point, first_half, border_box));
-        Convex2D second_convex(GetHalfPlanesIntersection(cur_point, second_half, border_box));
-        return first_convex.GetIntersectionalConvex(second_convex);
+    Convex2D Voronoi2DLocus::GetRegion() {
+        return *region_;
     }
-}
 
-Voronoi2DLocus
-VoronoiDiagram2D::MakeVoronoi2DLocus(const Point2D &site, const vector<Point2D> &points, const Rectangle &border_box) {
-    Voronoi2DLocus cur_locus;
-    vector<Line2D> halfplanes;
-    for (auto cur_point : points) {
-        if (cur_point != site) {
-            Segment2D cur_seg(site, cur_point);
-            Line2D cur_halfplane(cur_seg.GetCenter(), cur_seg.NormalVec());
-            halfplanes.push_back(cur_halfplane);
-        }
+    VoronoiDiagram2D::VoronoiDiagram2D()
+            : diagram_() {}
+
+    VoronoiDiagram2D::VoronoiDiagram2D(const vector<Point2D> &points) {
+        MakeVoronoiDiagram2DHalfPlanes(points, kMaxRectangle);
     }
-    *cur_locus.region_ = GetHalfPlanesIntersection(site, halfplanes, border_box);
-    cur_locus.site_ = site;
-    return cur_locus;
-}
 
-VoronoiDiagram2D
-VoronoiDiagram2D::MakeVoronoiDiagram2DHalfPlanes(const vector<Point2D> &points, const Rectangle &border_box) {
-    Voronoi2DLocus cur_locus;
-    for (auto cur_point : points) {
-        cur_locus = MakeVoronoi2DLocus(cur_point, points, border_box);
-        this->diagram_.push_back(cur_locus);
+    vector<Voronoi2DLocus> VoronoiDiagram2D::GetDiagramLocuses() const {
+        return diagram_;
     }
-    return *this;
-}
 
-VoronoiDiagram2D
-VoronoiDiagram2D::MakeVoronoiDiagram2DFortune(const vector<Point2D> &points, const Rectangle &border_box) {
-    priority_queue<Event> events_queue(points.begin(), points.end());
-    shared_ptr<Event> cur_event;
-    BeachSearchTree beach_line;
-    DCEL edges;
-    while (!events_queue.empty()) {
-        cur_event = make_shared<Event>(events_queue.top());
-        shared_ptr<const PointEvent> is_point_event(dynamic_cast<const PointEvent *>(cur_event.get()));
-        if (is_point_event) {
-            events_queue.pop();
-            beach_line.HandlePointEvent(*is_point_event, border_box, events_queue, edges);
+    DCEL VoronoiDiagram2D::GetDiagramDCEL() const {
+        return dcel_;
+    }
+
+    Convex2D
+    GetHalfPlanesIntersection(const Point2D &cur_point, const vector<Line2D> &halfplanes, const Rectangle &border_box) {
+        if (halfplanes.size() == 1) {
+            Convex2D cur_convex(border_box.GetIntersectionalConvex2D(cur_point, halfplanes[0]));
+            return cur_convex;
         } else {
-            shared_ptr<const CircleEvent> is_circle_event(dynamic_cast<const CircleEvent *>(cur_event.get()));
-            events_queue.pop();
-            beach_line.HandleCircleEvent(*is_circle_event, border_box, events_queue, edges);
+            int middle = halfplanes.size() >> 1;
+            vector<Line2D> first_half(halfplanes.begin(), halfplanes.begin() + middle);
+            vector<Line2D> second_half(halfplanes.begin() + middle, halfplanes.end());
+            Convex2D first_convex(GetHalfPlanesIntersection(cur_point, first_half, border_box));
+            Convex2D second_convex(GetHalfPlanesIntersection(cur_point, second_half, border_box));
+            return first_convex.GetIntersectionalConvex(second_convex);
         }
     }
-    edges.Finish(border_box);
-    this->dcel_ = edges;
-    return *this;
+
+    Voronoi2DLocus
+    VoronoiDiagram2D::MakeVoronoi2DLocus(const Point2D &site, const vector<Point2D> &points,
+                                         const Rectangle &border_box) {
+        Voronoi2DLocus cur_locus;
+        vector<Line2D> halfplanes;
+        for (auto cur_point : points) {
+            if (cur_point != site) {
+                Segment2D cur_seg(site, cur_point);
+                Line2D cur_halfplane(cur_seg.GetCenter(), cur_seg.NormalVec());
+                halfplanes.push_back(cur_halfplane);
+            }
+        }
+        *cur_locus.region_ = GetHalfPlanesIntersection(site, halfplanes, border_box);
+        cur_locus.site_ = site;
+        return cur_locus;
+    }
+
+    VoronoiDiagram2D
+    VoronoiDiagram2D::MakeVoronoiDiagram2DHalfPlanes(const vector<Point2D> &points, const Rectangle &border_box) {
+        Voronoi2DLocus cur_locus;
+        for (auto cur_point : points) {
+            cur_locus = MakeVoronoi2DLocus(cur_point, points, border_box);
+            this->diagram_.push_back(cur_locus);
+        }
+        return *this;
+    }
+
+    VoronoiDiagram2D
+    VoronoiDiagram2D::MakeVoronoiDiagram2DFortune(const vector<Point2D> &points, const Rectangle &border_box) {
+        priority_queue<Event> events_queue(points.begin(), points.end());
+        shared_ptr<Event> cur_event;
+        BeachSearchTree beach_line;
+        DCEL edges;
+        while (!events_queue.empty()) {
+            cur_event = make_shared<Event>(events_queue.top());
+            shared_ptr<const PointEvent> is_point_event(dynamic_cast<const PointEvent *>(cur_event.get()));
+            if (is_point_event) {
+                events_queue.pop();
+                beach_line.HandlePointEvent(*is_point_event, border_box, events_queue, edges);
+            } else {
+                shared_ptr<const CircleEvent> is_circle_event(dynamic_cast<const CircleEvent *>(cur_event.get()));
+                events_queue.pop();
+                beach_line.HandleCircleEvent(*is_circle_event, border_box, events_queue, edges);
+            }
+        }
+        edges.Finish(border_box);
+        this->dcel_ = edges;
+        return *this;
+    }
 }

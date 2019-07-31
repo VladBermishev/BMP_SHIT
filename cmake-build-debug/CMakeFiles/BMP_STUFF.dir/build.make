@@ -78,6 +78,7 @@ BMP_STUFF_EXTERNAL_OBJECTS =
 
 BMP_STUFF.exe: CMakeFiles/BMP_STUFF.dir/main.cpp.obj
 BMP_STUFF.exe: CMakeFiles/BMP_STUFF.dir/build.make
+BMP_STUFF.exe: libvoronoi.a
 BMP_STUFF.exe: CMakeFiles/BMP_STUFF.dir/linklibs.rsp
 BMP_STUFF.exe: CMakeFiles/BMP_STUFF.dir/objects1.rsp
 BMP_STUFF.exe: CMakeFiles/BMP_STUFF.dir/link.txt

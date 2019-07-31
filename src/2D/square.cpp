@@ -19,39 +19,41 @@
 */
 #include "square.hpp"
 
-Square::Square()
-        : Convex2D() {}
+namespace VoronoiDiagram {
+    Square::Square()
+            : Convex2D() {}
 
-Square::Square(const vector<Point2D> &points)
-        : Convex2D(points) {}
+    Square::Square(const vector<Point2D> &points)
+            : Convex2D(points) {}
 
-Square::Square(const Point2D &p1, const Point2D &p2, const Point2D &p3, const Point2D &p4)
-        : Convex2D(vector<Point2D>{p1, p2, p3, p4}) {}
+    Square::Square(const Point2D &p1, const Point2D &p2, const Point2D &p3, const Point2D &p4)
+            : Convex2D(vector<Point2D>{p1, p2, p3, p4}) {}
 
-double Square::Area() const {
-    return Convex2D::Area();
-}
+    double Square::Area() const {
+        return Convex2D::Area();
+    }
 
-double Square::Perimeter() const {
-    return Convex2D::Perimeter();
-}
+    double Square::Perimeter() const {
+        return Convex2D::Perimeter();
+    }
 
-bool Square::Contains(const Point2D &point) const {
-    return Convex2D::Contains(point);
-}
+    bool Square::Contains(const Point2D &point) const {
+        return Convex2D::Contains(point);
+    }
 
-bool Square::Boundary(const Point2D &point) const {
-    return Convex2D::Boundary(point);
-}
+    bool Square::Boundary(const Point2D &point) const {
+        return Convex2D::Boundary(point);
+    }
 
-vector<Point2D> Square::GetIntersection(const Line2D &line) const {
-    return Convex2D::GetIntersection(line);
-}
+    vector<Point2D> Square::GetIntersection(const Line2D &line) const {
+        return Convex2D::GetIntersection(line);
+    }
 
-vector<Point2D> Square::GetIntersection(const Ray2D &ray) const {
-    return Convex2D::GetIntersection(ray);
-}
+    vector<Point2D> Square::GetIntersection(const Ray2D &ray) const {
+        return Convex2D::GetIntersection(ray);
+    }
 
-vector<Point2D> Square::GetIntersection(const Segment2D &segment) const {
-    return Convex2D::GetIntersection(segment);
+    vector<Point2D> Square::GetIntersection(const Segment2D &segment) const {
+        return Convex2D::GetIntersection(segment);
+    }
 }

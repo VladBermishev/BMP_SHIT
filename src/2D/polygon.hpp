@@ -29,44 +29,45 @@
 #include "segment2D.hpp"
 #include "shape2D.hpp"
 
-class Polygon : public Shape2D {
-public:
-    explicit Polygon();
+namespace VoronoiDiagram {
+    class Polygon : public Shape2D {
+    public:
+        explicit Polygon();
 
-    explicit Polygon(int n);
+        explicit Polygon(int n);
 
-    Polygon(const Polygon &second_polygon);
+        Polygon(const Polygon &second_polygon);
 
-    Polygon &operator=(const Polygon &second_polygon);
+        Polygon &operator=(const Polygon &second_polygon);
 
-    Polygon(const vector<Point2D> &points);
+        Polygon(const vector<Point2D> &points);
 
-    Polygon &operator=(const vector<Point2D> &points);
+        Polygon &operator=(const vector<Point2D> &points);
 
-    Polygon(Polygon &&second_polygon);
+        Polygon(Polygon &&second_polygon);
 
-    Polygon &operator=(Polygon &&second_polygon);
+        Polygon &operator=(Polygon &&second_polygon);
 
-    size_t Size() const;
+        size_t Size() const;
 
-    double Area() const;
+        double Area() const;
 
-    double Perimeter() const;
+        double Perimeter() const;
 
-    virtual bool Contains(const Point2D &point) const;
+        virtual bool Contains(const Point2D &point) const;
 
-    virtual bool Boundary(const Point2D &point) const;
+        virtual bool Boundary(const Point2D &point) const;
 
-    virtual vector<Point2D> GetIntersection(const Line2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Line2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Segment2D &segment) const override;
+        virtual vector<Point2D> GetIntersection(const Segment2D &segment) const override;
 
-    Polygon GetIntersection(const Polygon &second_polygon) const;
+        Polygon GetIntersection(const Polygon &second_polygon) const;
 
-protected:
-    vector<Point2D> vertices_;
-};
-
+    protected:
+        vector<Point2D> vertices_;
+    };
+}
 #endif /*POLYGON_HPP_*/

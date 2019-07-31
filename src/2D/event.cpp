@@ -19,37 +19,39 @@
 */
 #include "event.hpp"
 
-Event::Event(const Point2D &point_of_event)
-        : point_of_event_(point_of_event) {}
+namespace VoronoiDiagram {
+    Event::Event(const Point2D &point_of_event)
+            : point_of_event_(point_of_event) {}
 
-Point2D Event::GetPointOfEvent() const {
-    return point_of_event_;
-}
+    Point2D Event::GetPointOfEvent() const {
+        return point_of_event_;
+    }
 
-bool Event::operator<(const Event &second_event) const {
-    return this->point_of_event_.y > second_event.point_of_event_.y
-           || fabs(this->point_of_event_.y - second_event.point_of_event_.y) <= EPS &&
-              this->point_of_event_.x < second_event.point_of_event_.x;
-}
+    bool Event::operator<(const Event &second_event) const {
+        return this->point_of_event_.y > second_event.point_of_event_.y
+               || fabs(this->point_of_event_.y - second_event.point_of_event_.y) <= EPS &&
+                  this->point_of_event_.x < second_event.point_of_event_.x;
+    }
 
-PointEvent::PointEvent(const Point2D &site)
-        : Event(site) {}
+    PointEvent::PointEvent(const Point2D &site)
+            : Event(site) {}
 
-double PointEvent::Abscissa() const {
-    return point_of_event_.x;
-}
+    double PointEvent::Abscissa() const {
+        return point_of_event_.x;
+    }
 
-double PointEvent::Ordinate() const {
-    return point_of_event_.y;
-}
+    double PointEvent::Ordinate() const {
+        return point_of_event_.y;
+    }
 
-CircleEvent::CircleEvent(const Point2D &new_voronoi_vertex)
-        : Event(new_voronoi_vertex) {}
+    CircleEvent::CircleEvent(const Point2D &new_voronoi_vertex)
+            : Event(new_voronoi_vertex) {}
 
-double CircleEvent::Abscissa() const {
-    return point_of_event_.x;
-}
+    double CircleEvent::Abscissa() const {
+        return point_of_event_.x;
+    }
 
-double CircleEvent::Ordinate() const {
-    return point_of_event_.y;
+    double CircleEvent::Ordinate() const {
+        return point_of_event_.y;
+    }
 }

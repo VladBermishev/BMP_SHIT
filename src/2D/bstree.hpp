@@ -27,87 +27,91 @@
 #include "event.hpp"
 #include "dcel.hpp"
 
-class BeachSearchTree;
+namespace VoronoiDiagram {
+    class BeachSearchTree;
 
-class Arch {
-public:
-    Arch();
+    class Arch {
+    public:
+        Arch();
 
-    Arch(const PointEvent &focus);
+        Arch(const PointEvent &focus);
 
-    double Abscissa() const; // of focus
-    double Ordinate() const; // of focus
+        double Abscissa() const; // of focus
+        double Ordinate() const; // of focus
 
-    Point2D GetIntersection(const Line2D &line) const;
+        Point2D GetIntersection(const Line2D &line) const;
 
-    Point2D GetIntersection(const Ray2D &ray) const;
+        Point2D GetIntersection(const Ray2D &ray) const;
 
-    pair<Point2D, Point2D> GetIntersection(const Arch &second_arch, double line_position) const;
+        pair<Point2D, Point2D> GetIntersection(const Arch &second_arch, double line_position) const;
 
-    bool operator==(const Arch &second_arch) const;
+        bool operator==(const Arch &second_arch) const;
 
-    bool operator!=(const Arch &second_arch) const;
+        bool operator!=(const Arch &second_arch) const;
 
-private:
-    shared_ptr<Point2D> focus_;
-    shared_ptr<EdgeNode> left_edge_;
-    shared_ptr<EdgeNode> right_edge_;
-};
+    private:
+        shared_ptr<Point2D> focus_;
+        shared_ptr<EdgeNode> left_edge_;
+        shared_ptr<EdgeNode> right_edge_;
+    };
 
 // LEAFS are ARCHS
-class BeachNode {
-public:
-    BeachNode();
+    class BeachNode {
+    public:
+        BeachNode();
 
-    BeachNode(const Arch &arch);
+        BeachNode(const Arch &arch);
 
-    BeachNode(const Point2D &break_point);
+        BeachNode(const Point2D &break_point);
 
-private:
-    shared_ptr<Arch> arch_;
-    Point2D break_point_;
-    shared_ptr<BeachNode> parent_;
-    shared_ptr<BeachNode> left_node_;
-    shared_ptr<BeachNode> right_node_;
-    shared_ptr<EdgeNode> edge_;
-    shared_ptr<CircleEvent> circle_event_;
+    private:
+        shared_ptr<Arch> arch_;
+        Point2D break_point_;
+        shared_ptr<BeachNode> parent_;
+        shared_ptr<BeachNode> left_node_;
+        shared_ptr<BeachNode> right_node_;
+        shared_ptr<EdgeNode> edge_;
+        shared_ptr<CircleEvent> circle_event_;
 
-    friend class BeachSearchTree;
-};
+        friend class BeachSearchTree;
+    };
 
-class BeachSearchTree {
-public:
-    BeachSearchTree();
+    class BeachSearchTree {
+    public:
+        BeachSearchTree();
 
-    BeachSearchTree(const shared_ptr<BeachNode> &beach_node);
+        BeachSearchTree(const shared_ptr<BeachNode> &beach_node);
 
-    void AddArch(const Arch &new_arch, const Rectangle &border_box, priority_queue<Event> &events_queue, DCEL &edges);
+        void
+        AddArch(const Arch &new_arch, const Rectangle &border_box, priority_queue<Event> &events_queue, DCEL &edges);
 
-    shared_ptr<BeachNode> SearchPlaceForArch(const Arch &arch_to_search) const;
+        shared_ptr<BeachNode> SearchPlaceForArch(const Arch &arch_to_search) const;
 
-    void
-    DeleteArch(const Arch &new_arch, const Rectangle &border_box, priority_queue<Event> &events_queue, DCEL &edges);
+        void
+        DeleteArch(const Arch &new_arch, const Rectangle &border_box, priority_queue<Event> &events_queue, DCEL &edges);
 
-    shared_ptr<BeachNode> SearchArch(const Arch &arch_to_search) const;
+        shared_ptr<BeachNode> SearchArch(const Arch &arch_to_search) const;
 
-    void CheckCircleEvent(const shared_ptr<BeachNode> &arch, const Rectangle &border_box,
-                          priority_queue<Event> &events_queue, DCEL &edges);
+        void CheckCircleEvent(const shared_ptr<BeachNode> &arch, const Rectangle &border_box,
+                              priority_queue<Event> &events_queue, DCEL &edges);
 
-    shared_ptr<BeachNode> GetTheLeftestLeaf() const;
+        shared_ptr<BeachNode> GetTheLeftestLeaf() const;
 
-    shared_ptr<BeachNode> GetNextLeaf(const shared_ptr<BeachNode> &cur_leaf) const;
+        shared_ptr<BeachNode> GetNextLeaf(const shared_ptr<BeachNode> &cur_leaf) const;
 
-    // we can push the new event or a new edge at any moment, so they can`t be constant arguments
-    void
-    HandlePointEvent(const PointEvent &point_event, const Rectangle &border_box, priority_queue<Event> &events_queue,
-                     DCEL &edges);
+        // we can push the new event or a new edge at any moment, so they can`t be constant arguments
+        void
+        HandlePointEvent(const PointEvent &point_event, const Rectangle &border_box,
+                         priority_queue<Event> &events_queue,
+                         DCEL &edges);
 
-    void
-    HandleCircleEvent(const CircleEvent &circle_event, const Rectangle &border_box, priority_queue<Event> &events_queue,
-                      DCEL &edges);
+        void
+        HandleCircleEvent(const CircleEvent &circle_event, const Rectangle &border_box,
+                          priority_queue<Event> &events_queue,
+                          DCEL &edges);
 
-private:
-    shared_ptr<BeachNode> root_;
-};
-
+    private:
+        shared_ptr<BeachNode> root_;
+    };
+}
 #endif /*BST_HPP_*/

@@ -25,33 +25,34 @@
 
 #include "convex2D.hpp"
 
-class Triangle : public Convex2D {
-public:
-    explicit Triangle();
+namespace VoronoiDiagram {
+    class Triangle : public Convex2D {
+    public:
+        explicit Triangle();
 
-    explicit Triangle(const vector<Point2D> &points);
+        explicit Triangle(const vector<Point2D> &points);
 
-    explicit Triangle(const Point2D &a, const Point2D &b, const Point2D &c);
+        explicit Triangle(const Point2D &a, const Point2D &b, const Point2D &c);
 
-    double GetSideA() const;
+        double GetSideA() const;
 
-    double GetSideB() const;
+        double GetSideB() const;
 
-    double GetSideC() const;
+        double GetSideC() const;
 
-    double Area() const;
+        double Area() const;
 
-    double Perimeter() const;
+        double Perimeter() const;
 
-    bool Contains(const Point2D &point) const;
+        bool Contains(const Point2D &point) const;
 
-    bool Boundary(const Point2D &point) const;
+        bool Boundary(const Point2D &point) const;
 
-    virtual vector<Point2D> GetIntersection(const Line2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Line2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Segment2D &) const override;
-};
-
+        virtual vector<Point2D> GetIntersection(const Segment2D &) const override;
+    };
+}
 #endif /*TRIANGLE_HPP_*/

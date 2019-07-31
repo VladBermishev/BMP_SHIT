@@ -23,41 +23,42 @@
 #include "../splash_forward.hpp"
 #include "../splash_utils.hpp"
 
-class Point2D {
-public:
-    double x;
-    double y;
+namespace VoronoiDiagram {
+    class Point2D {
+    public:
+        double x;
+        double y;
 
-    explicit Point2D();
+        explicit Point2D();
 
-    Point2D(double _x, double _y);
+        Point2D(double _x, double _y);
 
-    double l1_distance(const Point2D &) const;
+        double l1_distance(const Point2D &) const;
 
-    double l2_distance(const Point2D &) const;
+        double l2_distance(const Point2D &) const;
 
-    Point2D operator+(const Point2D &) const;
+        Point2D operator+(const Point2D &) const;
 
-    Point2D operator-(const Point2D &) const;
+        Point2D operator-(const Point2D &) const;
 
-    Point2D operator*(double) const;
+        Point2D operator*(double) const;
 
-    Point2D operator/(double) const;
+        Point2D operator/(double) const;
 
-    Point2D operator-() const;
+        Point2D operator-() const;
 
-    bool operator==(const Point2D &) const;
+        bool operator==(const Point2D &) const;
 
-    bool operator!=(const Point2D &) const;
+        bool operator!=(const Point2D &) const;
 
-    bool operator<(const Point2D &) const;
+        bool operator<(const Point2D &) const;
 
-    friend std::ostream &operator<<(std::ostream &, const Point2D &);
+        friend std::ostream &operator<<(std::ostream &, const Point2D &);
 
-    friend std::istream &operator>>(std::istream &, Point2D &);
-};
+        friend std::istream &operator>>(std::istream &, Point2D &);
+    };
 
-const Point2D kInfPoint2D = Point2D(INF, INF);
-const Point2D kNegInfPoint2D = Point2D(-INF, -INF);
-
+    const Point2D kInfPoint2D = Point2D(INF, INF);
+    const Point2D kNegInfPoint2D = Point2D(-INF, -INF);
+}
 #endif /*POINT2D_HPP_*/

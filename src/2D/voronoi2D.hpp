@@ -35,44 +35,45 @@
 #include "event.hpp"
 #include "dcel.hpp"
 
-class Voronoi2DLocus {
-public:
-    Voronoi2DLocus();
+namespace VoronoiDiagram {
+    class Voronoi2DLocus {
+    public:
+        Voronoi2DLocus();
 
-    Voronoi2DLocus(const Convex2D &locus, const Point2D &site);
+        Voronoi2DLocus(const Convex2D &locus, const Point2D &site);
 
-    Convex2D GetRegion();
+        Convex2D GetRegion();
 
-private:
-    shared_ptr<Convex2D> region_;
-    Point2D site_;
+    private:
+        shared_ptr<Convex2D> region_;
+        Point2D site_;
 
-    friend class VoronoiDiagram2D;
-};
+        friend class VoronoiDiagram2D;
+    };
 
-Convex2D
-GetHalfPlanesIntersection(const Point2D &cur_point, const vector<Line2D> &halfplanes, const Rectangle &border_box);
+    Convex2D
+    GetHalfPlanesIntersection(const Point2D &cur_point, const vector<Line2D> &halfplanes, const Rectangle &border_box);
 
-class VoronoiDiagram2D {
-public:
-    VoronoiDiagram2D();
+    class VoronoiDiagram2D {
+    public:
+        VoronoiDiagram2D();
 
-    VoronoiDiagram2D(const vector<Point2D> &points);
+        VoronoiDiagram2D(const vector<Point2D> &points);
 
-    vector<Voronoi2DLocus> GetDiagramLocuses() const;
+        vector<Voronoi2DLocus> GetDiagramLocuses() const;
 
-    DCEL GetDiagramDCEL() const;
+        DCEL GetDiagramDCEL() const;
 
-    VoronoiDiagram2D MakeVoronoiDiagram2DHalfPlanes(const vector<Point2D> &points, const Rectangle &border_box);
+        VoronoiDiagram2D MakeVoronoiDiagram2DHalfPlanes(const vector<Point2D> &points, const Rectangle &border_box);
 
-    VoronoiDiagram2D MakeVoronoiDiagram2DFortune(const vector<Point2D> &points, const Rectangle &border_box);
+        VoronoiDiagram2D MakeVoronoiDiagram2DFortune(const vector<Point2D> &points, const Rectangle &border_box);
 
-private:
-    vector<Voronoi2DLocus> diagram_;
-    DCEL dcel_;
+    private:
+        vector<Voronoi2DLocus> diagram_;
+        DCEL dcel_;
 
-    Voronoi2DLocus
-    MakeVoronoi2DLocus(const Point2D &cur_point, const vector<Point2D> &points, const Rectangle &border_box);
-};
-
+        Voronoi2DLocus
+        MakeVoronoi2DLocus(const Point2D &cur_point, const vector<Point2D> &points, const Rectangle &border_box);
+    };
+}
 #endif /*VORONOI2D_HPP_*/

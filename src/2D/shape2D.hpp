@@ -23,21 +23,22 @@
 #include "../splash_forward.hpp"
 #include "../splash_utils.hpp"
 
-class Shape2D {
-public:
-    virtual double Area() const = 0;
+namespace VoronoiDiagram {
+    class Shape2D {
+    public:
+        virtual double Area() const = 0;
 
-    virtual bool Contains(const Point2D &) const = 0;
+        virtual bool Contains(const Point2D &) const = 0;
 
-    virtual bool Boundary(const Point2D &) const = 0;
+        virtual bool Boundary(const Point2D &) const = 0;
 
-    virtual vector<Point2D> GetIntersection(const Line2D &) const = 0;
+        virtual vector <Point2D> GetIntersection(const Line2D &) const = 0;
 
-    virtual vector<Point2D> GetIntersection(const Ray2D &) const = 0;
+        virtual vector <Point2D> GetIntersection(const Ray2D &) const = 0;
 
-    virtual vector<Point2D> GetIntersection(const Segment2D &) const = 0;
+        virtual vector <Point2D> GetIntersection(const Segment2D &) const = 0;
 
-    virtual ~Shape2D() {}
-};
-
+        virtual ~Shape2D() {}
+    };
+}
 #endif /*SHAPE2D_HPP_*/

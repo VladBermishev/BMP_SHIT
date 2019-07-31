@@ -26,54 +26,55 @@
 #include "point2D.hpp"
 #include "segment2D.hpp"
 
-class Vector2D {
-public:
-    double x1;
-    double x2;
+namespace VoronoiDiagram {
+    class Vector2D {
+    public:
+        double x1;
+        double x2;
 
-    explicit Vector2D();
+        explicit Vector2D();
 
-    Vector2D(double _x1, double _x2);
+        Vector2D(double _x1, double _x2);
 
-    explicit Vector2D(const Point2D &point_to);
+        explicit Vector2D(const Point2D &point_to);
 
-    explicit Vector2D(const Point2D &point_from, const Point2D &point_to);
+        explicit Vector2D(const Point2D &point_from, const Point2D &point_to);
 
-    explicit Vector2D(const Segment2D &segment);
+        explicit Vector2D(const Segment2D &segment);
 
-    // Get the dot product of this vector and sceond_vec
-    // Complexity: O(1)
-    double Dot(const Vector2D &second_vector) const;
+        // Get the dot product of this vector and sceond_vec
+        // Complexity: O(1)
+        double Dot(const Vector2D &second_vector) const;
 
-    // Get the oriented area of parallelogramm, built by this two vectors (2D cross product)
-    // Counter-Clockwise is a positive rotation
-    // Complexity: O(1)
-    double OrientedCCW(const Vector2D &second_vector) const; // cross product on plane
+        // Get the oriented area of parallelogramm, built by this two vectors (2D cross product)
+        // Counter-Clockwise is a positive rotation
+        // Complexity: O(1)
+        double OrientedCCW(const Vector2D &second_vector) const; // cross product on plane
 
-    // Get the signed angle between this vector and the second_vec (in this order)
-    // Complexity: O(1)
-    double OrientedAngle(const Vector2D &second_vector) const;
+        // Get the signed angle between this vector and the second_vec (in this order)
+        // Complexity: O(1)
+        double OrientedAngle(const Vector2D &second_vector) const;
 
-    // Get the polar angle between this vector and the second_vec (in this order)
-    // Returns angle in [0, 2*pi)
-    // Complexity: O(1)
-    double PolarAngle(const Vector2D &second_vector) const;
+        // Get the polar angle between this vector and the second_vec (in this order)
+        // Returns angle in [0, 2*pi)
+        // Complexity: O(1)
+        double PolarAngle(const Vector2D &second_vector) const;
 
-    // Get the unsigned angle between this vector and the second_vec (in this order)
-    // Complexity: O(1)
-    double AbsAngle(const Vector2D &second_vector) const;
+        // Get the unsigned angle between this vector and the second_vec (in this order)
+        // Complexity: O(1)
+        double AbsAngle(const Vector2D &second_vector) const;
 
-    // Get the norm of this vector (sqrt(vec.Dot(vec))
-    // Complexity: O(1)
-    double Norm() const;
+        // Get the norm of this vector (sqrt(vec.Dot(vec))
+        // Complexity: O(1)
+        double Norm() const;
 
-    // Get the ortoganal vector gor this vector
-    // Complexity: O(1)
-    Vector2D Ortopair() const;
+        // Get the ortoganal vector gor this vector
+        // Complexity: O(1)
+        Vector2D Ortopair() const;
 
-    double Length() const;
+        double Length() const;
 
-    friend Point2D operator+(const Point2D &point_for_add, const Vector2D &vec_to_add);
-};
-
+        friend Point2D operator+(const Point2D &point_for_add, const Vector2D &vec_to_add);
+    };
+}
 #endif /*VECTOR2D_HPP_*/

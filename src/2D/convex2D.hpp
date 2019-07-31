@@ -25,86 +25,87 @@
 
 #include "polygon.hpp"
 
-class Convex2D : public Polygon {
-public:
-    explicit Convex2D();
+namespace VoronoiDiagram {
+    class Convex2D : public Polygon {
+    public:
+        explicit Convex2D();
 
-    explicit Convex2D(int n);
+        explicit Convex2D(int n);
 
-    Convex2D(const Convex2D &second_polygon);
+        Convex2D(const Convex2D &second_polygon);
 
-    Convex2D &operator=(const Convex2D &second_polygon);
+        Convex2D &operator=(const Convex2D &second_polygon);
 
-    Convex2D(const vector<Point2D> &points);
+        Convex2D(const vector<Point2D> &points);
 
-    Convex2D &operator=(const vector<Point2D> &points);
+        Convex2D &operator=(const vector<Point2D> &points);
 
-    Convex2D(Convex2D &&second_polygon);
+        Convex2D(Convex2D &&second_polygon);
 
-    Convex2D &operator=(Convex2D &&second_polygon);
+        Convex2D &operator=(Convex2D &&second_polygon);
 
-    void AddVertex(const Point2D &new_vertex);
+        void AddVertex(const Point2D &new_vertex);
 
-    size_t Size() const;
+        size_t Size() const;
 
-    Point2D Next(int i) const;
+        Point2D Next(int i) const;
 
-    Point2D Prev(int i) const;
+        Point2D Prev(int i) const;
 
-    Point2D GetCurVertex() const;
+        Point2D GetCurVertex() const;
 
-    Point2D GetLastVertex() const;
+        Point2D GetLastVertex() const;
 
-    Point2D GetLastPrevVertex() const;
+        Point2D GetLastPrevVertex() const;
 
-    void MoveCurVertex();
+        void MoveCurVertex();
 
-    Segment2D GetCurEdge() const;
+        Segment2D GetCurEdge() const;
 
-    vector<Point2D> GetVertices() const;
+        vector<Point2D> GetVertices() const;
 
-    vector<Segment2D> GetEdges() const;
+        vector<Segment2D> GetEdges() const;
 
-    double Area() const;
+        double Area() const;
 
-    bool Contains(const Point2D &) const;
+        bool Contains(const Point2D &) const;
 
-    bool Boundary(const Point2D &) const;
+        bool Boundary(const Point2D &) const;
 
-    virtual vector<Point2D> GetIntersection(const Line2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Line2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Segment2D &segment) const override;
+        virtual vector<Point2D> GetIntersection(const Segment2D &segment) const override;
 
-    Convex2D GetIntersectionalConvex(Convex2D &second_polygon);
+        Convex2D GetIntersectionalConvex(Convex2D &second_polygon);
 
-private:
-    size_t cur_vertex_ind;
-};
+    private:
+        size_t cur_vertex_ind;
+    };
 
-vector<Point2D> MakeConvexHullGrehem(const vector<Point2D> &points);
+    vector<Point2D> MakeConvexHullGrehem(const vector<Point2D> &points);
 
-vector<Point2D> MakeConvexHullJarvis(const vector<Point2D> &points);
+    vector<Point2D> MakeConvexHullJarvis(const vector<Point2D> &points);
 
-enum class NumOfCase {
-    kBothLooks = 1,
-    kFirstLooksAtSecond,
-    kSecondLooksAtFirst,
-    kBothNotLooks,
-};
+    enum class NumOfCase {
+        kBothLooks = 1,
+        kFirstLooksAtSecond,
+        kSecondLooksAtFirst,
+        kBothNotLooks,
+    };
 
-enum class WhichEdge {
-    kFirstEdge = 1,
-    kSecondEdge = 2,
-    Unknown,
-};
+    enum class WhichEdge {
+        kFirstEdge = 1,
+        kSecondEdge = 2,
+        Unknown,
+    };
 
 // non-member functions for .GetIntersectionalConvex()
-NumOfCase EdgesCaseNum(const Segment2D &first_edge, const Segment2D &second_edge);
+    NumOfCase EdgesCaseNum(const Segment2D &first_edge, const Segment2D &second_edge);
 
-WhichEdge WhichEdgeIsInside(const Segment2D &first_edge, const Segment2D &second_edge);
+    WhichEdge WhichEdgeIsInside(const Segment2D &first_edge, const Segment2D &second_edge);
 
-WhichEdge MoveOneOfEdges(const Segment2D &first_edge, const Segment2D &second_edge, Convex2D &result_polygon);
-
+    WhichEdge MoveOneOfEdges(const Segment2D &first_edge, const Segment2D &second_edge, Convex2D &result_polygon);
+}
 #endif /*CONVEX2D_HPP_*/

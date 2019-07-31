@@ -27,62 +27,63 @@
 #include "vector2D.hpp"
 #include "line2D.hpp"
 
-class Segment2D {
-public:
-    Point2D a;
-    Point2D b;
+namespace VoronoiDiagram {
+    class Segment2D {
+    public:
+        Point2D a;
+        Point2D b;
 
-    explicit Segment2D();
+        explicit Segment2D();
 
-    explicit Segment2D(const Point2D &point_a, const Point2D &point_b);
+        explicit Segment2D(const Point2D &point_a, const Point2D &point_b);
 
-    explicit Segment2D(const Vector2D &vector);
+        explicit Segment2D(const Vector2D &vector);
 
-    void Reverse();
+        void Reverse();
 
-    double Length() const;
+        double Length() const;
 
-    Point2D GetCenter() const;
+        Point2D GetCenter() const;
 
-    bool Point2DInBox(const Point2D &point) const;
+        bool Point2DInBox(const Point2D &point) const;
 
-    Vector2D Direction() const;
+        Vector2D Direction() const;
 
-    Vector2D NormalVec() const;
+        Vector2D NormalVec() const;
 
-    bool LooksAt(const Segment2D &second_vector) const;
+        bool LooksAt(const Segment2D &second_vector) const;
 
-    bool Contains(const Point2D &point) const;
+        bool Contains(const Point2D &point) const;
 
-    // Intersection of two segments
-    // ?params: second_seg - the segment with which we find intersection
-    // ?return: returns Point2D(INF, INF) if there is no intersection,
-    //          if one segment intersects another not only with one point, returns some point of their 'intersection segment',
-    //          else return point of their intersection
-    Point2D GetIntersection(const Segment2D &second_seg) const;
+        // Intersection of two segments
+        // ?params: second_seg - the segment with which we find intersection
+        // ?return: returns Point2D(INF, INF) if there is no intersection,
+        //          if one segment intersects another not only with one point, returns some point of their 'intersection segment',
+        //          else return point of their intersection
+        Point2D GetIntersection(const Segment2D &second_seg) const;
 
-    // Intersection of line and segment
-    // ?params: segment - the segment with which we find intersection
-    // ?return: returns Point2D(INF, INF) if there is no intersection,
-    //          if this line contains segment, returns first point of segment,
-    //          else returns point of their intersection (in 2D)
-    // ?complexity: O(1)
-    Point2D GetIntersection(const Line2D &line) const;
+        // Intersection of line and segment
+        // ?params: segment - the segment with which we find intersection
+        // ?return: returns Point2D(INF, INF) if there is no intersection,
+        //          if this line contains segment, returns first point of segment,
+        //          else returns point of their intersection (in 2D)
+        // ?complexity: O(1)
+        Point2D GetIntersection(const Line2D &line) const;
 
-    // Intersection of segment and ray
-    // ?params: ray - the ray with which we find intersection
-    // ?return: returns Point2D(INF, INF) if there is no intersection,
-    //          if ray contains this segment, returns first point of segment,
-    //          if this segment contains pos_ of ray, returns pos_ of ray,
-    //          else returns point of their intersection (in 2D)
-    // ?complexity: O(1)
-    Point2D GetIntersection(const Ray2D &ray) const;
+        // Intersection of segment and ray
+        // ?params: ray - the ray with which we find intersection
+        // ?return: returns Point2D(INF, INF) if there is no intersection,
+        //          if ray contains this segment, returns first point of segment,
+        //          if this segment contains pos_ of ray, returns pos_ of ray,
+        //          else returns point of their intersection (in 2D)
+        // ?complexity: O(1)
+        Point2D GetIntersection(const Ray2D &ray) const;
 
-    bool HasIntersection(const Segment2D &second_seg) const;
+        bool HasIntersection(const Segment2D &second_seg) const;
 
-    bool HasIntersection(const Line2D &line) const;
+        bool HasIntersection(const Line2D &line) const;
 
-    bool HasIntersection(const Ray2D &ray) const;
-};
-
+        bool HasIntersection(const Ray2D &ray) const;
+    };
+}
 #endif /*SEGMENT_HPP_*/

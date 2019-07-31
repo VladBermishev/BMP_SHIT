@@ -25,29 +25,30 @@
 
 #include "convex2D.hpp"
 
-class Square : public Convex2D {
-public:
-    explicit Square();
+namespace VoronoiDiagram {
+    class Square : public Convex2D {
+    public:
+        explicit Square();
 
-    explicit Square(const vector<Point2D> &points);
+        explicit Square(const vector<Point2D> &points);
 
-    explicit Square(const Point2D &p1, const Point2D &p2, const Point2D &p3, const Point2D &p4);
+        explicit Square(const Point2D &p1, const Point2D &p2, const Point2D &p3, const Point2D &p4);
 
-    double Area() const;
+        double Area() const;
 
-    double Perimeter() const;
+        double Perimeter() const;
 
-    bool Contains(const Point2D &) const;
+        bool Contains(const Point2D &) const;
 
-    bool Boundary(const Point2D &) const;
+        bool Boundary(const Point2D &) const;
 
-    virtual vector<Point2D> GetIntersection(const Line2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Line2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Segment2D &) const override;
-};
+        virtual vector<Point2D> GetIntersection(const Segment2D &) const override;
+    };
 
-const Square kMaxSquare = Square(Point2D(INF, INF), Point2D(-INF, INF), Point2D(-INF, -INF), Point2D(INF, -INF));
-
+    const Square kMaxSquare = Square(Point2D(INF, INF), Point2D(-INF, INF), Point2D(-INF, -INF), Point2D(INF, -INF));
+}
 #endif /*SQUARE_HPP*/

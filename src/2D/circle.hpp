@@ -25,46 +25,47 @@
 
 #include "ellipse.hpp"
 
-class Circle : public Ellipse {
-public:
-    explicit Circle();
+namespace VoronoiDiagram {
+    class Circle : public Ellipse {
+    public:
+        explicit Circle();
 
-    explicit Circle(const Point2D &center, double radius);
+        explicit Circle(const Point2D &center, double radius);
 
-    Circle(const Circle &second_circle);
+        Circle(const Circle &second_circle);
 
-    void operator=(const Circle &second_circle);
+        void operator=(const Circle &second_circle);
 
-    Circle(Circle &&second_circle);
+        Circle(Circle &&second_circle);
 
-    void operator=(Circle &&second_circle);
+        void operator=(Circle &&second_circle);
 
-    Circle(const Point2D &p1, const Point2D &p2, const Point2D &p3);
+        Circle(const Point2D &p1, const Point2D &p2, const Point2D &p3);
 
-    void SetCenter(const Point2D &);
+        void SetCenter(const Point2D &);
 
-    void SetRadius(double);
+        void SetRadius(double);
 
-    Point2D GetCenter() const;
+        Point2D GetCenter() const;
 
-    double GetRadius() const;
+        double GetRadius() const;
 
-    Point2D GetLowestPoint() const;
+        Point2D GetLowestPoint() const;
 
-    double Area() const;
+        double Area() const;
 
-    double Length() const;
+        double Length() const;
 
-    bool Contains(const Point2D &) const;
+        bool Contains(const Point2D &) const;
 
-    bool Boundary(const Point2D &) const;
+        bool Boundary(const Point2D &) const;
 
-    virtual vector<Point2D> GetIntersection(const Line2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Line2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
+        virtual vector<Point2D> GetIntersection(const Ray2D &) const override;
 
-    virtual vector<Point2D> GetIntersection(const Segment2D &) const override;
-};
+        virtual vector<Point2D> GetIntersection(const Segment2D &) const override;
+    };
 
-
+}
 #endif /*CIRCLE_HPP_*/

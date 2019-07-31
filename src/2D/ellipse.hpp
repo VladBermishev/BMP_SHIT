@@ -27,42 +27,43 @@
 #include "segment2D.hpp"
 #include "shape2D.hpp"
 
-class Ellipse : public Shape2D {
-public:
-    explicit Ellipse();
+namespace VoronoiDiagram {
+    class Ellipse : public Shape2D {
+    public:
+        explicit Ellipse();
 
-    explicit Ellipse(const Point2D &center, double big_haxis, double little_haxis);
+        explicit Ellipse(const Point2D &center, double big_haxis, double little_haxis);
 
-    void SetLittleAx(double new_value);
+        void SetLittleAx(double new_value);
 
-    void SetBigAx(double new_value);
+        void SetBigAx(double new_value);
 
-    void SetCenter(const Point2D &new_point);
+        void SetCenter(const Point2D &new_point);
 
-    double GetLittleAx() const;
+        double GetLittleAx() const;
 
-    double GetBigAx() const;
+        double GetBigAx() const;
 
-    Point2D GetCenter() const;
+        Point2D GetCenter() const;
 
-    double Area() const;
+        double Area() const;
 
-    bool Length() const;
+        bool Length() const;
 
-    bool Contains(const Point2D &point) const;
+        bool Contains(const Point2D &point) const;
 
-    bool Boundary(const Point2D &point) const;
+        bool Boundary(const Point2D &point) const;
 
-    virtual vector<Point2D> GetIntersection(const Line2D &line) const override;
+        virtual vector<Point2D> GetIntersection(const Line2D &line) const override;
 
-    virtual vector<Point2D> GetIntersection(const Ray2D &ray) const override;
+        virtual vector<Point2D> GetIntersection(const Ray2D &ray) const override;
 
-    virtual vector<Point2D> GetIntersection(const Segment2D &segment) const override;
+        virtual vector<Point2D> GetIntersection(const Segment2D &segment) const override;
 
-protected:
-    Point2D center_;
-    double big_haxis_;
-    double little_haxis_;
-};
-
+    protected:
+        Point2D center_;
+        double big_haxis_;
+        double little_haxis_;
+    };
+}
 #endif /*ELLIPSE_HPP_*/
