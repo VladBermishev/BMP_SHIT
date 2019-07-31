@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Vladi/Desktop/BMP_STUFF/main.cpp
+windows.h
+C:/Users/Vladi/Desktop/BMP_STUFF/windows.h
+vector
+-
+iostream
+-
+random
+-
+fstream
+-
+algorithm
+-
+ctime
+-
+

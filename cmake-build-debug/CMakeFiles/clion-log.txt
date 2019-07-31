@@ -1,0 +1,4 @@
+C:\Users\Vladi\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\192.5728.100\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Vladi\Desktop\BMP_STUFF
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Vladi/Desktop/BMP_STUFF/cmake-build-debug
