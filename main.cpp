@@ -10,7 +10,7 @@
 #include <fstream>
 #include <algorithm>
 #include <ctime>
-
+#include "src/2D/voronoi2D.hpp"
 const int PHOTOS_AMOUNT = 100;
 const int POINTS_AMOUNT = 10;
 const int X_SIZE = 50;
